@@ -20,6 +20,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Ejecutar la consulta
         $stmt->execute([$nombres, $apellidos, $usuario, $direccion, $contrasena, $email, $telefono, $carrera, $campus]);
         
+        // Cargar a la sesión
+        session_start();
+        $_SESSION['usuario'] = $usuario;
+        $_SESSION['nombres'] = $nombres;
+        $_SESSION['apellidos'] = $apellidos;
+        $_SESSION['direccion'] = $direccion;
+        $_SESSION['email'] = $email;
+        $_SESSION['telefono'] = $telefono;
+        $_SESSION['carrera'] = $carrera;
+        $_SESSION['campus'] = $campus;
+
         echo "Registro exitoso. ¡Bienvenid@!";
 
         header("Location: ../views/ofertaCursos.php");
