@@ -21,6 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute([$nombres, $apellidos, $usuario, $direccion, $contrasena, $email, $telefono, $carrera, $campus]);
         
         echo "Registro exitoso. ¡Bienvenid@!";
+
+        header("Location: ../views/ofertaCursos.php");
         
     } catch (PDOException $e) {
         echo "Error al registrarse: " . $e->getMessage();
